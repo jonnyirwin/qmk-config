@@ -1,1 +1,4 @@
-# This file intentionally left blank
+CAPS_WORD_ENABLE = yes
+MOUSEKEY_ENABLE  = yes
+LTO_ENABLE       = yes
+COMBO_ENABLE     = yes
