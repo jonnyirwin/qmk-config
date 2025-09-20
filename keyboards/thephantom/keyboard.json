@@ -32,9 +32,6 @@
         "matrix": [0,0]
     },
     "split": {
-        "bootmagic": {
-            "matrix": [4,0]
-        },
         "enabled": true,
         "matrix_pins": {
             "right": {
