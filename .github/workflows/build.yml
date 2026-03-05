@@ -1,0 +1,11 @@
+name: Build QMK Firmware
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    uses: qmk/qmk_firmware/.github/workflows/qmk_userspace_build_targets.yml@main
+    secrets: inherit

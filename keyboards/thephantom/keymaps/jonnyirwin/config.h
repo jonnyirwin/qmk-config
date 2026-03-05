@@ -1,8 +1,4 @@
 #pragma once
 
-// Temporarily force master side to test
 #define MASTER_LEFT
-
-// Alternative hand detection
-// #define MASTER_RIGHT
-// #define EE_HANDS
+#define COMBO_ONLY_FROM_LAYER 0
