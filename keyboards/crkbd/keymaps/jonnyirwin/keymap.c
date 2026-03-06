@@ -71,9 +71,9 @@ combo_t key_combos[] = {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_CK]  = LAYOUT_split_3x6_3(LAYER_CK_3x6_3),
-    [_NAV] = LAYOUT_split_3x6_3(LAYER_NAV_3x6_3),
-    [_SYM] = LAYOUT_split_3x6_3(LAYER_SYM_3x6_3),
-    [_FN]  = LAYOUT_split_3x6_3(LAYER_FN_3x6_3),
-    [_SYS] = LAYOUT_split_3x6_3(LAYER_SYS_3x6_3),
+    [_CK]  = LAYOUT_split_3x6_3_wrapper(LAYER_CK_3x6_3),
+    [_NAV] = LAYOUT_split_3x6_3_wrapper(LAYER_NAV_3x6_3),
+    [_SYM] = LAYOUT_split_3x6_3_wrapper(LAYER_SYM_3x6_3),
+    [_FN]  = LAYOUT_split_3x6_3_wrapper(LAYER_FN_3x6_3),
+    [_SYS] = LAYOUT_split_3x6_3_wrapper(LAYER_SYS_3x6_3),
 };

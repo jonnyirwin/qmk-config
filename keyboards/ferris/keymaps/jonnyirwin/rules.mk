@@ -1,5 +1,5 @@
 CAPS_WORD_ENABLE = yes
-MOUSEKEY_ENABLE  = no
+MOUSEKEY_ENABLE  = yes
 LTO_ENABLE       = yes
 COMBO_ENABLE     = yes
 CONVERT_TO       = rp2040_ce

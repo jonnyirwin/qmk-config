@@ -70,16 +70,16 @@ combo_t key_combos[] = {
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_CK]  = LAYOUT_split_3x5_2(LAYER_CK_3x5_2),
-    [_NAV] = LAYOUT_split_3x5_2(LAYER_NAV_3x5_2),
-    [_SYM] = LAYOUT_split_3x5_2(LAYER_SYM_3x5_2),
-    [_FN]  = LAYOUT_split_3x5_2(LAYER_FN_3x5_2),
-    [_SYS] = LAYOUT_split_3x5_2(LAYER_SYS_3x5_2),
+    [_CK]  = LAYOUT_split_3x5_2_wrapper(LAYER_CK_3x5_2),
+    [_NAV] = LAYOUT_split_3x5_2_wrapper(LAYER_NAV_3x5_2),
+    [_SYM] = LAYOUT_split_3x5_2_wrapper(LAYER_SYM_3x5_2),
+    [_FN]  = LAYOUT_split_3x5_2_wrapper(LAYER_FN_3x5_2),
+    [_SYS] = LAYOUT_split_3x5_2_wrapper(LAYER_SYS_3x5_2),
 
     [_MK] = LAYOUT_split_3x5_2(
-        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,     KC_NO,   KC_WH_U, KC_NO,   KC_NO,   KC_ACL2,
-        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,     KC_MS_L, KC_MS_D, KC_MS_U, KC_MS_R, KC_ACL1,
-        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,     KC_NO,   KC_WH_D, KC_NO,   KC_NO,   KC_ACL0,
-                              KC_TRNS,  KC_TRNS,   KC_MS_BTN1, KC_MS_BTN2
+        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,     KC_NO,   MS_WHLU, KC_NO,   KC_NO,   MS_ACL2,
+        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,     MS_LEFT, MS_DOWN, MS_UP,   MS_RGHT, MS_ACL1,
+        KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,     KC_NO,   MS_WHLD, KC_NO,   KC_NO,   MS_ACL0,
+                              KC_TRNS,  KC_TRNS,   MS_BTN1,    MS_BTN2
     ),
 };

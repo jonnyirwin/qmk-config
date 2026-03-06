@@ -33,6 +33,13 @@
 
 #pragma once
 
+/* Wrapper macros: the C preprocessor counts arguments before expanding inner
+ * macros, so LAYOUT_xxx(LAYER_MACRO) is seen as 1 arg.  These variadic
+ * wrappers force expansion first. */
+#define LAYOUT_split_3x5_2_wrapper(...) LAYOUT_split_3x5_2(__VA_ARGS__)
+#define LAYOUT_split_3x5_3_wrapper(...) LAYOUT_split_3x5_3(__VA_ARGS__)
+#define LAYOUT_split_3x6_3_wrapper(...) LAYOUT_split_3x6_3(__VA_ARGS__)
+
 /* ────────────────────────────────────────────────────────────────────────────
  * 3×5+2 thumb layout  (34-key: Ferris/Sweep)
  * ──────────────────────────────────────────────────────────────────────────── */
