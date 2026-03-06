@@ -12,6 +12,13 @@ jobs:
     with:
       qmk_repo: qmk/qmk_firmware
       qmk_ref: master
+      preparation_command: >-
+        for kb in keyboards/*/keyboard.json; do
+          kb_name=$(basename $(dirname "$kb"));
+          if [ ! -d "qmk_firmware/keyboards/$kb_name" ]; then
+            ln -s "$GITHUB_WORKSPACE/keyboards/$kb_name" "qmk_firmware/keyboards/$kb_name";
+          fi;
+        done
 
   publish:
     name: 'QMK Userspace Publish'
