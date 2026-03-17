@@ -1,0 +1,19 @@
+// Copyright 2023 Thomas Haukland (@tompi)
+// SPDX-License-Identifier: GPL-2.0-or-later
+
+#pragma once
+
+#define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
+#define WS2812_PIO_USE_PIO1
+#define WS2812_BYTE_ORDER WS2812_BYTE_ORDER_RGB
+
+#define TAPPING_TERM 230
+
+#define WS2812_DI_PIN GP16
+#define RGBLIGHT_LED_COUNT 1
+
+#define MAX_DEFERRED_EXECUTORS 32
+
+#define RGBLIGHT_DEFAULT_HUE 128
+#define RGBLIGHT_DEFAULT_SAT 128
+#define RGBLIGHT_DEFAULT_VAL 32
