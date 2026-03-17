@@ -9,6 +9,7 @@
 #include "encoder.h"
 #include "ghosting.h"
 #include "print.h"
+#include "gpio.h"
 
 #define MATRIX_IO_DELAY 25
 
@@ -19,30 +20,30 @@ static const pin_t col_pins[] = MATRIX_COL_PINS;
 static matrix_row_t previous_matrix[MATRIX_ROWS];
 
 static void select_row(uint8_t row) {
-    setPinOutput(row_pins[row]);
-    writePinLow(row_pins[row]);
+    gpio_set_pin_output(row_pins[row]);
+    gpio_write_pin_low(row_pins[row]);
 }
 
-static void unselect_row(uint8_t row) { setPinInputHigh(row_pins[row]); }
+static void unselect_row(uint8_t row) { gpio_set_pin_input_high(row_pins[row]); }
 
 static void unselect_rows(void) {
     for (uint8_t x = 0; x < MATRIX_ROWS; x++) {
-        setPinInputHigh(row_pins[x]);
+        gpio_set_pin_input_high(row_pins[x]);
     }
 }
 
 static void select_col(uint8_t col) {
-    setPinOutput(col_pins[col]);
-    writePinLow(col_pins[col]);
+    gpio_set_pin_output(col_pins[col]);
+    gpio_write_pin_low(col_pins[col]);
 }
 
 static void unselect_col(uint8_t col) {
-    setPinInputHigh(col_pins[col]);
+    gpio_set_pin_input_high(col_pins[col]);
 }
 
 static void unselect_cols(void) {
     for (uint8_t x = 0; x < MATRIX_COLS/2; x++) {
-        setPinInputHigh(col_pins[x*2]);
+        gpio_set_pin_input_high(col_pins[x*2]);
     }
 }
 
@@ -52,7 +53,7 @@ static void read_cols_on_row(matrix_row_t current_matrix[], uint8_t current_row)
 
     for (uint8_t col_index = 0; col_index < MATRIX_COLS / 2; col_index++) {
         uint16_t column_index_bitmask = COL_SHIFTER << ((col_index * 2) + 1);
-        if (readPin(col_pins[col_index*2])) {
+        if (gpio_read_pin(col_pins[col_index*2])) {
             current_matrix[current_row] &= ~column_index_bitmask;
         } else {
             current_matrix[current_row] |= column_index_bitmask;
@@ -68,7 +69,7 @@ static void read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
 
     uint16_t column_index_bitmask = COL_SHIFTER << (current_col * 2);
     for (uint8_t row_index = 0; row_index < MATRIX_ROWS; row_index++) {
-        if (readPin(row_pins[row_index])) {
+        if (gpio_read_pin(row_pins[row_index])) {
             current_matrix[row_index] &= ~column_index_bitmask;
         } else {
             current_matrix[row_index] |= column_index_bitmask;
@@ -81,7 +82,6 @@ static void read_rows_on_col(matrix_row_t current_matrix[], uint8_t current_col)
 void matrix_init_custom(void) {
     unselect_cols();
     unselect_rows();
-    debounce_init(MATRIX_ROWS);
 }
 
 void store_old_matrix(matrix_row_t current_matrix[]) {
